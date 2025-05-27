@@ -1,27 +1,54 @@
 <?php
-    class Produto{
-        private $Nome;
-        private $Preco;
-        private $Quantidade;
+class  Produto{
+    private $Nome;
+    private $Preco;
+    private $Quantidade;
 
-        public function __construct($nome_recebido, $preco_recebido, $quantidade_recebido){
-            $this-> Nome = $Nome;
-            $this-> Preço = $Preço;
-            $this-> Quantidade = $Quantidade;
-        }
 
-        public function getNome() {
-            return $this->Nome = $nome_recebido;
-        }
+    public function __construct ($nome_produto,$preco_produto=0,$quantidade_produto=0){
+        $this-> Nome = $nome_produto;
+        $this-> Preco = $preco_produto;
+        $this-> Quantidade = $quantidade_produto;
+    }
 
-        public function getPreco() {
-            return $this->Preco = $preco_recebido;
-        }
+    public function getNome(){
+        return $this->Nome;
+    }
 
-        public function getQuantidade() {
-            return $this->Quantidade = $quantidade_recebido;
-        }
+    public function getPreco(){
+        return $this-> Preco;
+    }
+
+
+    public function setNome(){
+        return $this->Nome;
+    }
+
+    public function setPreco(){
+        return $this->Preco;
     }
     
+        public function adicionarEstoque($quantidade_produto){
+        if ($quantidade_produto> 0) {
+            $this->Quantidade += $quantidade_produto;
+        }
+        }
+
+          public function removerEstoque($quantidade_produto){
+          if ($quantidade_produto > 0 && $quantidade_produto <= $this->Quantidade) {
+            $this->Quantidade -= $quantidade_produto;
+        }
+        }
+
+          public function mostrarDetalhes(){
+               echo "Produto: " .$this->Nome . "<br>";
+        echo "Preço: " .$this->Preco . "<br>";
+        echo "Quantidade em estoque: " .$this->Quantidade . "<br>";
+        }
+
+    
+}
+
+
 
 ?>
